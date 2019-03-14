@@ -1,0 +1,101 @@
+/*General page styling (matches main website)*/
+body{
+	font-family: "LatoWebLight", sans-serif;
+  font-size: 11pt !important;
+  background-color: #fff !important;
+  color: #000;
+  border-left: 15px solid #880303;
+  border-right: 15px solid #880303;
+  border-top: 15px solid #880303;
+  min-height: 120%;
+}
+footer{
+	font-family: "LatoWebLight", sans-serif;
+	font-size: 11pt !important;
+	background-color: #fff;
+	color: #000;
+	border-bottom: 15px solid #880303;
+}
+
+/* Logo */
+#logo{
+  padding: 8px;
+  margin-left: 1%;
+}
+
+#logobar{
+  background-color: #000;
+  padding: 0px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  margin-top: 1%;
+}
+
+/*search bar */
+#searchbar{
+  margin-bottom: 1%;
+}
+
+#searchicon:hover{
+  background-color: #22b24c;
+}
+
+/* Dimensions of map */
+#geomap{
+  height:400px;
+  border: 2px solid #000;
+  border-bottom-right-radius: 25px;
+  margin-bottom: 1%;
+}
+
+#screenShotUrl{
+	visibility: hidden;
+}
+
+#addressForm{
+	font-weight: bold;
+	background-color: #22b24c;
+	text-align: center;
+	width: 100%;
+	margin-top: 3%;
+}
+
+.fudgedButton{
+	border: #880303 1px solid;
+	background-color: #fff;
+	color: #999;
+}
+
+#screenshot{
+	border: #880303 1px solid;
+}
+
+
+input{
+	border-bottom: 1px solid #22b24c;
+	border-left: 0px solid #000;
+	border-right: 0px solid #000;
+	border-top: 0px solid #000;
+}
+
+.summation{
+	border: 0px solid #000;
+}
+
+.info{
+	width: 75%;
+	margin-left: 12%;
+	margin-right: 12S%;
+}
+
+#customSprinklerShutDown{
+	width: 100px;
+}
+
+#customSprinklerStartUp{
+	width: 100px;
+}
+
+#weedingHourEstimate{
+	width: 100px;
+}

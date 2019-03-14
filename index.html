@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <!-- Custom Stylesheet for Proposals -->
+  <link rel="stylesheet" type="text/css" href="../systemtest/proposalstyles.css" />
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.min.js" type="text/text/javascript"></script>
+
+  <!-- jQuery UI library -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+
+  <title>Victory Lawnscapes Proposal System</title>
+</head>
+<body>
+    <div class="container-fluid"> <!--Grid container for responsive spacing of map and estimate columns -->
+      <div class="row">
+        <div class="col-xl-6">
+          <h1 id="logobar"><img id="logo" src="http://www.victorylawn.com/images/logo.png" /></h1>
+          <!-- Search form -->
+        <div class="row">
+        <div class="col-12">
+              <div class="form-group input-group">
+              <input type="text" id="autocomplete" class="form-control" value="" />
+              </div>
+        </div>
+        </div>
+          <div id="geomap">
+          </div>
+        <div id="buttondiv">
+          <button id="erasePolygon">Remove Last Outline</button>
+          <div><input id="areaTotal" class="summation" disabled="disabled"></div>
+        </div>
+      </div>
+      <div class="col-xl-6">
+        <div id="proposaloptions">
+          <form action="createProposalPDF.php" method="post">
+              <input id="screenShotUrl" name="screenShotUrl" />
+              <div id="addressForm">
+              Address
+              </div>
+              <table class="info">
+              <tr>
+                <td>First name: <input id="firstName" name="firstName" /></td>
+                <td>Last name: <input  id="lastName" name="lastName"/></td>
+              </tr>
+              <tr>
+                <td>Address: <input id="address" name="address" /></td>
+                <td>City: <input id="city" name="city" /></td>
+              </tr>
+              <tr>
+                <td>State: <input id="state" name="state" /></td>
+                <td>Zip: <input id="zip" name="zip" /></td>
+              </tr>
+              <tr>
+                <td>Phone: <input id="phone" name="phone" /></td>
+                <td>Email: <input id="email" name="email" /></td>
+              </tr>
+            </table>
+              <div id="addressForm">
+              Services
+              </div>
+                <div class="row">
+                <div class="col-sm-1"><input type="checkbox" id="lawnCutting" /></div>
+                <div class="col-sm-3">Lawn Maintenance</div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4"><input id="lawnCuttingEstimate" name="lawnCuttingEstimate" class="summation">
+                </div>
+                </div>
+            <div class="row">
+              <div class="col-sm-1"><input type="checkbox" id="weeding" /></div>
+              <div class="col-sm-3">Weeding </div>
+
+
+              <!--  <td> Customer? <input type="radio" name="weeding" id="weedingCustomer" /> Yes
+                    <input type="radio" name="weeding" id="weedingNotCustomer" /> No </td> -->
+                <div class="col-sm-4"><input type="text" placeholder="estimated" name="weedingHourEstimate" id="weedingHourEstimate" /> hours</div>
+                <div class="col-sm-4"><input id="weedingEstimate" name="weedingEstimate" class="summation"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-1"><input type="checkbox" id="fertilization" /></div>
+                <div class="col-sm-3">Fertilization</div>
+                <div class="col-sm-4"><input type="radio" name="fertilization4" value="fertilization4" id="fertilization4" /> 4 applications
+                    <input type="radio" name="fertilization6" value="fertilization6" id="fertilization6" /> 6 applications </div>
+                <div class="col-sm-4"><input id="fertilizationEstimate" name="fertilizationEstimate" class="summation"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-1">  <input type="checkbox" id="grubControl" /></div>
+                <div class="col-sm-3">Grub Control </div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4"><input id="grubControlEstimate" name="grubControlEstimate" class="summation"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-1"><input type="checkbox" id="pestControl" /></div>
+                <div class="col-sm-3">Pest Control </div>
+
+                <div class="col-sm-4"><input type="radio" name="pest3" id="pest3" /> 3 applications
+                    <input type="radio" name="pest5" id="pest5" /> 5 applications </div>
+                <div class="col-sm-4"><input id="pestControlEstimate" name="pestControlEstimate" class="summation"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-1"><input type="checkbox" id="mosquitoSpray" /></div>
+                <div class="col-sm-3">Mosquito Spray </div>
+
+                <div class="col-sm-4"><input type="radio" name="mosquito3" id="mosquito3" /> 3 applications
+                    <input type="radio" name="mosquito5" id="mosquito5" /> 5 applications </div>
+                <div class="col-sm-4"><input id="mosquitoSprayEstimate" name="mosquitoSprayEstimate" class="summation"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-1"><input type="checkbox" id="aeration" /></div>
+                <div class="col-sm-3">Core Aeration </div>
+                <div class="col-sm-4"><input type="radio" name="aerationSpring" id="aerationSpring" /> Spring
+                    <input type="radio" name="aerationFall" id="aerationFall" /> Fall </div>
+                <div class="col-sm-4"><input id="aerationEstimate" name="aerationEstimate" class="summation"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-1">  <input type="checkbox" id="detaching" /></div>
+                <div class="col-sm-3">De-thaching </div>
+
+                <div class="col-sm-4"><input type="radio" name="detachingSpring" id="detachingSpring" /> Spring
+                    <input type="radio" name="detachingFall" id="detachingFall" /> Fall </div>
+                <div class="col-sm-4"><input id="detachingEstimate" name="detachingEstimate" class="summation"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-1"><input type="checkbox" id="sprinklerStartUp" /></div>
+                <div class="col-sm-3">Sprinkler Startup &nbsp;</div>
+                <div class="col-sm-1"> <input id="sprinklerStartUpEstimate" name="sprinklerStartUpEstimate" class="summation"></div>
+                <div class="col-sm-3">  &nbsp;&nbsp;$<input type="text" id="customSprinklerStartUp" placeholder="custom quote" /></div>
+                <div class="col-sm-4"><input id="sprinklerStartUpEstimateTotal" name="sprinklerStartUpEstimateTotal" class="summation"></div>
+              </div>
+              <div class="row">
+                <div class="col-sm-1"> <input type="checkbox" id="sprinklerShutDown" /></div>
+                <div class="col-sm-3">Fall Shutdown </div>
+
+                <div class="col-sm-1"><input id="sprinklerShutDownEstimate" name="sprinklerShutDownEstimate" class="summation"></div>
+                <div class="col-sm-3"> &nbsp; $<input type="text" id="customSprinklerShutDown" placeholder="custom quote" /></div>
+                <div class="col-sm-4"><input id="sprinklerShutDownEstimateTotal" name="sprinklerShutDownEstimateTotal" class="summation"></div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-3"></div>
+                <div class="col-sm-1"><strong>Total:</strong></div>
+                <div class="col-sm-3"> <input id="totalOfAllServices" name="totalOfAllServices" class="summation"> </div>
+
+              </div>
+          <div class="row">
+            <div class="col-sm-2"><input class="fudgedButton" id="clearVariables" type="button" value="Clear Selected" /></div>
+            <div class="col-sm-3"></div>
+            <div class="col-sm-2"><input id="screenshot" type="button" value="Screenshot Map" /></div>
+            <div class="col-sm-3"><button id="createProposal" type="submit">Create Estimate</button></div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-sm-12"> &nbsp;</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-5"></div>
+          <div class="col-sm-6"><span id="imgMap"></span></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12"> &nbsp;</div>
+        </div>
+
+        </div>
+      </div>
+  </div><!-- row containing map and proposal options -->
+  </div> <!-- BS container div for spacing -->
+
+      <!-- !!!!! WILL NEED TO GET COMPANY'S KEY FOR PAYMENT PURPOSES !!!! -->
+      <!-- The libraries used here are: geometry, drawing, places -->
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9cv6AnpkeUTAlAz68Y8Ie5v3MIccMdws&libraries=geometry,drawing,places"></script>
+
+      <!-- Custom Javascript -->
+      <script type="text/javascript" src="proposalscript.js"></script>
+      <footer>
+      </footer>
+</body>
